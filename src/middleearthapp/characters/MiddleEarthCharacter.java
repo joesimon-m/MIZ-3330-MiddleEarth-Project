@@ -6,10 +6,11 @@ public abstract class MiddleEarthCharacter {
 	private double power;
 	
 	/**
+	 * Constructor for the abstract class storing each character's attributes
 	 * 
-	 * @param name
-	 * @param health
-	 * @param power
+	 * @param name		String name of the character
+	 * @param health	Double value storing the health of the character
+	 * @param power		Double value storing the power of the character
 	 */
 	public MiddleEarthCharacter(String name, double health, double power) {
 		super();
