@@ -38,7 +38,13 @@ public class CharacterManager {
 	
 	
 	public MiddleEarthCharacter getCharacter(String name) {
-		return null;
+		
+		for(int i = 0; i < size; i++) { //iterates through characters until name matches given string
+			if (characters[i] != null && characters[i].getName().equals(name)) {
+                return characters[i]; //returns character object if name matches
+            }
+		}
+			return null;
 	}
 	
 	public boolean updateCharacter (MiddleEarthCharacter character, 
