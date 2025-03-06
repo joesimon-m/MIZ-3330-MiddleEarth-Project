@@ -72,8 +72,11 @@ public class CharacterManager {
 	}
 	
 	public void displayAllCharacters() {
-		System.out.println("N/A");
+		for(int i = 0; i<size; i++) {
+			characters[i].displayInfo();
+		};
 	}
+	
 	
 	
 }
