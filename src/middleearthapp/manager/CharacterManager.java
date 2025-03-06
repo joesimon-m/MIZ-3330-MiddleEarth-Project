@@ -5,11 +5,15 @@ import middleearthapp.characters.MiddleEarthCharacter;
 public class CharacterManager {
 	private MiddleEarthCharacter[] characters;
 	private int size;
-	
+
 	public CharacterManager() {
-		
+		 this.characters = new MiddleEarthCharacter[10]; 
+	     this.size = 0;
 	}
-	
+	/**
+	 * @param characters 
+	 * @param size
+	 */
 	public CharacterManager(MiddleEarthCharacter[] characters, int size) {
 		super();
 		this.characters = characters;
@@ -91,6 +95,8 @@ public class CharacterManager {
 			}
 		return false;
 	}
+	
+	
 	
 	public void displayAllCharacters() {
 		for(int i = 0; i<size; i++) {
