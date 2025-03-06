@@ -102,24 +102,24 @@ public class CharacterManager {
 	 * @return false if character not deleted, true otherwise
 	 */
 	public boolean deleteCharacter(MiddleEarthCharacter character) {
-		if (character == null) {
-			return false; //false if no character is given
-		}
-		//loop through array until matching character is found
-		for (int i = 0; i<size-1; i++) {
-			if (characters[i].equals(character)) {
-				//shift elements to left to fill gap
-				for (int j = i; j<size-1; j++) {
-					characters[j] = characters[j+1];
-				}
-				//clear info of removed character
-				characters[size-1] = null;
-				//decrease size counter
-				size--;
-				System.out.println("Removed.");
-				return true;}
-			}
-		return false; //return false if given character is not found
+	    if (character == null) {
+	        return false; // false if no character is given
+	    }
+	    // Loop through entire array up to current size.
+	    for (int i = 0; i < size; i++) {
+	        if (characters[i].equals(character)) {
+	            // Shift elements left from position i onward.
+	            for (int j = i; j < size - 1; j++) {
+	                characters[j] = characters[j + 1];
+	            }
+	            // Clear the last element and decrease the size counter.
+	            characters[size - 1] = null;
+	            size--;
+	            System.out.println("Removed.");
+	            return true;
+	        }
+	    }
+	    return false; 
 	}
 	
 	
@@ -132,6 +132,26 @@ public class CharacterManager {
 		};
 	} 
 	
-	
+	/**
+	 * Returns the number of characters currently stored in the array.
+	 *
+	 * @return the current size (number of characters)
+	 */
+	public int getSize() {
+	    return size;
+	}
+
+	/**
+	 * Returns the character at the specified index.
+	 *
+	 * @param index the index from which to retrieve the character
+	 * @return the MiddleEarthCharacter at that index, or null if the index is out of bounds
+	 */
+	public MiddleEarthCharacter getCharacterAt(int index) {
+	    if (index < 0 || index >= size) {
+	        return null;
+	    }
+	    return characters[index];
+	}
 	
 }
