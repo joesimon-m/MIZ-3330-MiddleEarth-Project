@@ -47,7 +47,28 @@ public class CharacterManager {
 	}
 	
 	public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) {
-		return false;
+		boolean flag = false;
+		
+		if (character == null) {
+			return flag;
+		}
+		
+		if (!character.getName().equals(name)) {
+			character.setName(name);
+			flag = true;
+		}
+		
+		if (character.getHealth() != health) {
+			character.setHealth(health);
+			flag = true;
+		}
+		
+		if (character.getPower() != power) {
+			character.setPower(power);
+			flag = true;
+		}
+		
+		return flag;
 	}
 	
 	public boolean deleteCharacter(MiddleEarthCharacter character) {
