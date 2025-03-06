@@ -11,7 +11,6 @@ public class Human extends MiddleEarthCharacter{
 	 */
 	public Human(String name, double health, double power) {
 		super(name, health, power);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -26,10 +25,10 @@ public class Human extends MiddleEarthCharacter{
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		if(this.getRace().equals(target.getRace()) || target.getRace().equals("Orc")) {
-			return false;
+			return false;	// 0x damage was done, so target's health remain unaffected
 		} else if(target.getRace().equals("Wizard")) {
 			target.setHealth(target.getHealth() - (this.getPower() * 1.5));
-			return true;
+			return true;	
 		} else {
 			target.setHealth(target.getHealth() - (this.getPower()));
 			return true;

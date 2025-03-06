@@ -11,7 +11,6 @@ public class Elf extends MiddleEarthCharacter{
 	 */
 	public Elf(String name, double health, double power) {
 		super(name, health, power);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -26,7 +25,7 @@ public class Elf extends MiddleEarthCharacter{
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		if(this.getRace().equals(target.getRace()) || target.getRace().equals("Dwarf")) {
-			return false;
+			return false;	// 0x damage was done, so target's health remain unaffected
 		} else if(target.getRace().equals("Orc")) {
 			target.setHealth(target.getHealth() - (this.getPower() * 1.5));
 			return true;
