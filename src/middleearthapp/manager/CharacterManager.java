@@ -38,7 +38,6 @@ public class CharacterManager {
 	
 	
 	public MiddleEarthCharacter getCharacter(String name) {
-		
 		for(int i = 0; i < size; i++) { //iterates through characters until name matches given string
 			if (characters[i] != null && characters[i].getName().equals(name)) {
                 return characters[i]; //returns character object if name matches
@@ -47,14 +46,28 @@ public class CharacterManager {
 			return null;
 	}
 	
-	public boolean updateCharacter (MiddleEarthCharacter character, 
-			String name, 
-			int health, 
-			int power) {
+	public boolean updateCharacter (MiddleEarthCharacter character, String name, int health, int power) {
 		return false;
 	}
 	
 	public boolean deleteCharacter(MiddleEarthCharacter character) {
+		if (character == null) {
+			return false; //false if no character is given
+		}
+		//loop through array until matching character is found
+		for (int i = 0; i<size-1; i++) {
+			if (characters[i].equals(character)) {
+				//shift elements to left to fill gap
+				for (int j = i; j<size-1; j++) {
+					characters[j] = characters[j+1];
+				}
+				//clear info of removed character
+				characters[size-1] = null;
+				//decrease size counter
+				size--;
+				System.out.println("Removed.");
+				return true;}
+			}
 		return false;
 	}
 	
