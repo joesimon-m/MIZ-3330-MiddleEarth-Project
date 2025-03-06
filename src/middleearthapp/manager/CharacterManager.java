@@ -17,8 +17,25 @@ public class CharacterManager {
 	}
 	
 	public boolean addCharacter(MiddleEarthCharacter c) {
-		return false;
+		if (c == null) {
+			return false; //makes sure that empty object isn't passed in*/
+		}
+		if (size >= characters.length) { //if full, copies characters to new array, doubled in length to make space
+			MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[characters.length*2];
+			for (int i = 0; i<characters.length; i++) { //copies characters over 
+				newCharacters[i] = characters[i];
+			}
+			characters = newCharacters;
+			
+		}
+		characters[size] = c; //size incremented to keep track of # of characters
+		size++;
+		
+		System.out.println("Character added.");
+		return true;
+		//adds character to end of characters array
 	}
+	
 	
 	public MiddleEarthCharacter getCharacter(String name) {
 		return null;
